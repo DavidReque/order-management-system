@@ -1,0 +1,40 @@
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Binarios de prueba
+*.test
+
+# Archivos de cobertura de pruebas
+/coverage.*
+*.prof
+
+# Directorio de dependencias (si usas 'go mod vendor')
+/vendor/
+
+# Archivo de workspace de Go (go.work)
+go.work
+go.work.sum
+
+# Archivos de entorno
+.env
+.env.*
+!.env.example
+!.env.test
+
+# Archivos específicos de Sistema Operativo
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Archivos y directorios específicos de IDEs/Editores
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.swp
+*~
