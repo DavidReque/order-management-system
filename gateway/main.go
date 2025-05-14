@@ -16,7 +16,7 @@ func init() {
 		log.Fatal("Error loading .env file: ", err)
 	}
 
-	httpAddr = common.EnvString("HTTP_ADDR", ":3000")
+	httpAddr = common.EnvString("HTTP_ADDR", ":8000")
 
 }
 
