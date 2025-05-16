@@ -5,10 +5,16 @@ import (
 	"net/http"
 
 	common "github.com/DavidReque/order-management-system/common"
+	pb "github.com/DavidReque/order-management-system/common/api"
 	"github.com/joho/godotenv"
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials/insecure"
 )
 
-var httpAddr string
+var (
+	httpAddr string
+	orderServiceAddr = "localhost:3000"
+)
 
 func init() {
 	err := godotenv.Load()
@@ -21,8 +27,16 @@ func init() {
 }
 
 func main() {
+	conn, err := grpc.Dial(orderServiceAddr, grpc.WithTransportCredentials(insecure.NewCredentials()))
+	if err != nil {
+		log.Fatal("Failed to connect to order service: ", err)
+	}
+	defer conn.Close()
+
+	c := pb.NewOrderServiceClient(conn)
+
 	mux := http.NewServeMux()
-	handler := NewHandler()
+	handler := NewHandler(c)
 	handler.registerRoutes(mux)
 
 	log.Println("Starting server on", httpAddr)
