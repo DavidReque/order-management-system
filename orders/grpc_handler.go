@@ -18,7 +18,7 @@ func NewGRPCHandler(grpcServer *grpc.Server) {
 }
 
 func (h *grpcHandler) CreateOrder(ctx context.Context, req *pb.CreateOrderRequest) (*pb.Order, error) {
-	log.Println("New order received: ")
+	log.Printf("New order received: %v", req)
 	o := &pb.Order{
 		ID: "42",
 	}
