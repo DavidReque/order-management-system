@@ -13,7 +13,7 @@ import (
 
 var (
 	httpAddr         string
-	orderServiceAddr = "localhost:3000"
+	orderServiceAddr = "localhost:2000"
 )
 
 func init() {
