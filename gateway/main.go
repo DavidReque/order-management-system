@@ -12,7 +12,7 @@ import (
 )
 
 var (
-	httpAddr string
+	httpAddr         string
 	orderServiceAddr = "localhost:3000"
 )
 
